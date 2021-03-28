@@ -20,7 +20,7 @@ tobit.model <- vglm(eqs,
                      tobit(Lower=0),data = df_reg)
 
 # try with rstan
-mod = stan_model ('censored.stan')
+mod = stan_model ('tobit.stan')
 data_input = list(
   N = nrow(df_reg), 
   K = length(var_list)+1, 
