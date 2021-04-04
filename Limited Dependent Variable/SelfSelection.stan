@@ -7,8 +7,6 @@ functions {
     res = log(1-normal_cdf(a1, (sigma1*rho/sigma2)*a2, sqrt((1-rho^2)*sigma1^2 ) )) ;
     return (res);
   }
-  
-
 }
 
 
@@ -16,8 +14,8 @@ data {
   int<lower = 0> N;
   int<lower = 0> k_1;
   int<lower = 0> k_2;
-  vector[N] y;
-  int D[N];
+  vector[N] y; / outcome 
+  int D[N]; // whether get treatment or not. D= 1( x_1[i]*beta_1+err1 >0)
   matrix[N,k_1] x_1;
   matrix[N,k_2] x_2;
 }
@@ -32,7 +30,6 @@ parameters {
 
 
 model {
-
    for (i in 1:N){
      if ( D[i] == 1) {
       // pr( D =1 , x2*beta_2 + err2 = y) = pr( x1*beta_1 + err1>0 | x2*beta_2 + err2 = y) pr(x2*beta_2 + err2 = y)
