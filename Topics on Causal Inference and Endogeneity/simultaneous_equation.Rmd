@@ -1,8 +1,8 @@
 ---
 title: "Simultaneous Equation Model"
 output:
-  html_document:
-    keep_md: true
+ github_document:
+    pandoc_args: --webtex
 ---
 
 ```{r setup, include=FALSE}
@@ -11,9 +11,11 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Introduction 
 
-Consider the following system 
-$$q_t =  \alpha_1 p_t + \alpha_2 x_t + \alpha_3 y_t +  u_t \tag{1}$$
-$$p_t =  \beta_1 q_t +\beta_2 x_t + \beta_3 y_t + v_t \tag{2}$$
+Consider the following system (1)(2)
+$$
+q_t =  \alpha_1 p_t + \alpha_2 x_t + \alpha_3 y_t +  u_t \quad (1)
+$$
+$$p_t =  \beta_1 q_t +\beta_2 x_t + \beta_3 y_t + v_t  \quad (2)$$
 suppose that $u$  are strictly independent of $x,y,p$, while $v$ is strictly independent of $x,y, q$.
 
 Apparently, separately estimating these two equations leads to the problem of endgoeneity. $q_t$ and $p_t$ are endogeneous, while $x$ and $y$ are exogeneous.
